@@ -1,0 +1,19 @@
+apiVersion: apps/v1  # replicaset file
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset
+spec:
+  replicas: 3  # how many replicas/pods
+  selector: # this replica when app gets huge scale they use the below label to 
+    matchLabels: # this label to identify their pods (repicasets)
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx # label for your pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
