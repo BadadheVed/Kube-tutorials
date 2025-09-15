@@ -1,3 +1,4 @@
+# learn about Replica sets here -> https://projects.100xdevs.com/tracks/kubernetes-1/Kubernetes-Part-1-14
 apiVersion: apps/v1  # replicaset file
 kind: ReplicaSet
 metadata:
