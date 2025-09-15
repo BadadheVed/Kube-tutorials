@@ -1,4 +1,4 @@
-#for more info read at -> https://projects.100xdevs.com/tracks/kubernetes-1/Kubernetes-Part-1-15
+# for more info check out-> https://projects.100xdevs.com/tracks/kubernetes-1/Kubernetes-Part-1-15
 apiVersion: apps/v1
 kind: Deployment
 metadata:
