@@ -13,3 +13,7 @@ nodeGroups:
     desiredCapacity: 3
     minSize: 3
     maxSize: 4
+
+
+    ## to apply this file run 
+    # ->> eksctl create cluster -f <fname>.yaml
