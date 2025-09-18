@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  namespace: test-app # this will create a deployment in this namespace
 spec:
   replicas: 3
   selector:

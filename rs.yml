@@ -4,7 +4,7 @@ kind: ReplicaSet
 metadata:
   name: nginx-replicaset
 spec:
-  replicas: 3  # how many replicas/pods
+  replicas: 3  # how many pods
   selector: # this replica when app gets huge scale they use the below label to 
     matchLabels: # this label to identify their pods (repicasets)
       app: nginx
