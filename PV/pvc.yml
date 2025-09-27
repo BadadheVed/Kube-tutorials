@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc # <---  this shouild match teh volume Mopunt name inthe Pod/Deployment
+spec:
+  accessModes:
+    - ReadWriteMany # <--- Read and write acces then this can be bounded
+  resources:
+    requests:
+      storage: 10Gi # <-- this must be <= the PV storage specified
+  storageClassName: nfs # <-- this should match the PV ->> storageClassName  to apply 
