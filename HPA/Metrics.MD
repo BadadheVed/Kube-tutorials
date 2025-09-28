@@ -16,3 +16,13 @@ kubectl top nodes
 ```
 
 --> To get the metrics of the node
+
+```bash
+kubectl patch service metrics-server -n kube-system --type='json' -p='[
+{
+"op": "replace",
+"path": "/spec/selector",
+"value": {"k8s-app": "metrics-server"}
+}
+]'
+```
