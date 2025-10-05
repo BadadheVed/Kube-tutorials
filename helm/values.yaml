@@ -1,0 +1,12 @@
+postgresUser: postgres
+postgresPassword: password
+postgresDatabase: mydb 
+namespace: postgres
+image:
+  repository: postgres
+  tag: "15"
+name: postgres
+
+
+# --> To tun the helm package just run helm install <release-name> <chart-path>
+# example helm install postgres-chart .  <-- here postgres-chart is chart name ans the . is th ecurrent directory

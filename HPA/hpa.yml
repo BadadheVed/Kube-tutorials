@@ -5,8 +5,8 @@ metadata:
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
-    kind: Deployment
-    name: cpu-deployment
+    kind: Deployment     # <-- scale the deployment
+    name: cpu-deployment     # <-- Deployment name
   minReplicas: 2
   maxReplicas: 5
   metrics:
