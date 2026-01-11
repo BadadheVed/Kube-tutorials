@@ -9,3 +9,21 @@ spec:
     requests:
       storage: 10Gi
   storageClassName: gp2  # This is service provided by the AWS
+
+  ---
+
+  # Instead OF gp2 i u want to use the diffrent name 
+  # Then we have to create a StorageClass  & the PVS Will look lie this here 
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: <Storage_Class_Name>
+  resources:
+    requests:
+      storage: 5Gi
+
