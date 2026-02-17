@@ -9,3 +9,41 @@ spec:
     requests:
       storage: 10Gi # <-- this must be <= the PV storage specified
   storageClassName: nfs # <-- this should match the PV ->> storageClassName  to apply 
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-pod
+spec:
+  containers:
+  - name: mongo
+    image: mongo:4.4
+    command: ["mongod", "--bind_ip_all"]
+    ports:
+    - containerPort: 27017
+    volumeMounts:
+    - mountPath: "/data/db"   # <-- this folder is to be mounted to the nfs-volume means this folder will be in the POD 
+      name: nfs-volume
+  volumes:
+  - name: nfs-volume
+    persistentVolumeClaim:
+      claimName: nfs-pvc
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /exports      # <-- to this folder the nfs will be co0nnected and this must be in the ~/data/exports 
+    server: 13.234.114.24  #<--- Put your VM IP here
+
